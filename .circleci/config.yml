@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: apex version
-      - run: apex deploy
+      - run: apex deploy hello
 
 workflows:
   version: 2
