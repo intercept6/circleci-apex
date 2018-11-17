@@ -1,13 +1,16 @@
 version: 2
+
 jobs:
-  build:
+  deploy:
     docker:
-      - image: debian:stretch
+      - image: kakakakakku/apex
     steps:
       - checkout
-      - run:
-          name: Greeting
-          command: echo Hello, world.
-      - run:
-          name: Print the Current Time
-          command: date
+      - run: apex version
+      - run: apex deploy
+
+workflows:
+  version: 2
+  apex:
+    jobs:
+      - deploy
